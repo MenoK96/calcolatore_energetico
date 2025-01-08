@@ -19,27 +19,15 @@ def index():
 # La seconda pagina
 @app.route('/<size>')
 def lights(size):
-    return render_template(
-                            'lights.html', 
-                            size=size
-                           )
+    return render_template('lights.html', size=size)
 
 # La terza pagina
 @app.route('/<size>/<lights>')
 def electronics(size, lights):
-    return render_template(
-                            'electronics.html',
-                            size = size, 
-                            lights = lights                           
-                           )
+    return render_template('electronics.html', size = size, lights = lights)
 
 # Calcolo
 @app.route('/<size>/<lights>/<device>')
 def end(size, lights, device):
-    return render_template('end.html', 
-                            result=result_calculate(int(size),
-                                                    int(lights), 
-                                                    int(device)
-                                                    )
-                        )
+    return render_template('end.html', result=result_calculate(int(size), int(lights), int(device)))
 app.run(debug=True)
